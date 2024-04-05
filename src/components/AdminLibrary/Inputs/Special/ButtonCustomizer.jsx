@@ -192,7 +192,7 @@ const Customizer = (props) => {
                           props.onChange(e, "button_border_size")
                         }
                       />
-                      <p class="PB-range-slidervalue">50px</p>
+                      <p class="PB-range-slidervalue">{setting.button_border_size ? setting.button_border_size + 'px' : '0px'}</p>
                     </div>
                   </div>
                 </div>
@@ -210,7 +210,7 @@ const Customizer = (props) => {
                           props.onChange(e, "button_border_radious")
                         }
                       />
-                      <p class="PB-range-slidervalue">50px</p>
+                      <p class="PB-range-slidervalue">{setting.button_border_radious ? setting.button_border_radious + 'px' : '0px'}</p>
                     </div>
                   </div>
                 </div>
@@ -255,7 +255,7 @@ const Customizer = (props) => {
                         value={setting.button_font_size}
                         onChange={(e) => props.onChange(e, "button_font_size")}
                       />
-                      <p class="PB-range-slidervalue">50px</p>
+                      <p class="PB-range-slidervalue">{setting.button_font_size ? setting.button_font_size + 'px' : '0px'}</p>
                     </div>
                   </div>
                 </div>
@@ -274,7 +274,7 @@ const Customizer = (props) => {
                         value={setting.button_font_width}
                         onChange={(e) => props.onChange(e, "button_font_width")}
                       />
-                      <p class="PB-range-slidervalue">50px</p>
+                       <p class="PB-range-slidervalue">{setting.button_font_width ? setting.button_font_width + 'px' : '0px'}</p>
                     </div>
                   </div>
                 </div>
@@ -296,7 +296,7 @@ const Customizer = (props) => {
                         value={setting.button_padding}
                         onChange={(e) => props.onChange(e, "button_padding")}
                       />
-                      <p class="PB-range-slidervalue">50px</p>
+                      <p class="PB-range-slidervalue">{setting.button_padding ? setting.button_padding + 'px' : '0px'}</p>
                     </div>
                   </div>
                 </div>
@@ -311,8 +311,8 @@ const Customizer = (props) => {
                       value={setting.button_margin}
                       onChange={(e) => props.onChange(e, "button_margin")}
                     />
-                    <p class="PB-range-slidervalue">50px</p>
-                  </div>{" "}
+                    <p class="PB-range-slidervalue">{setting.button_margin ? setting.button_margin + 'px' : '0px'}</p>
+                  </div>
                 </div>
               </div>
             </div>

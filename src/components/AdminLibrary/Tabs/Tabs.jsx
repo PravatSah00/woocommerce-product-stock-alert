@@ -45,24 +45,29 @@ const Tabs = ( props ) => {
         >
             { tab.icon && <i className={` mvx-font ${ tab.icon } `} ></i> }
             {menuCol ? null : tab.name}
-            {
+            {menuCol ? null : (
                 openedSubtab == tab.id ? 
-                    <p>Up</p>
+                    <p className='tab-menu-dropdown-icon active'><i className='mvx-font font-arrow-right'></i></p>
                     :
-                    <p>Down</p>
-            }
+                    <p className='tab-menu-dropdown-icon'><i className='mvx-font font-arrow-right'></i></p>
+            )}
         </Link>
     }
     
     // Get the description of the current tab.
-    const getTabDescription = () => {
+    const getTabDescription = ( tabData ) => {
 
-        return tabData.map( ( tab ) => {
-            return  tab.id === currentTab &&
-                <div className="mvx-tab-description-start">
-                    <div className="mvx-tab-name">{ tab.name }</div>
-                    <p>{ tab.desc }</p>
-                </div>
+        return tabData.map( ( {content, type} ) => {
+            if ( type === 'file' ) {
+                return  content.id === currentTab &&
+                    <div className="mvx-tab-description-start">
+                        <div className="mvx-tab-name">{ content.name }</div>
+                        <p>{ content.desc }</p>
+                    </div>
+            } else if ( type === 'folder' ) {
+                // Get tabdescription from child by recursion
+                return getTabDescription( content );
+            }
         });
     }
 
@@ -120,10 +125,7 @@ const Tabs = ( props ) => {
                                                 }
                                                 {
                                                     // openedSubtab == content[0].content.id &&
-                                                    <div
-                                                        className={`subtab-wrapper ${menuCol ? '????' : ''}`}
-                                                        style={{ display: !openedSubtab ? 'none' : '' }}
-                                                    >
+                                                    <div className={`subtab-wrapper ${menuCol && 'show'} ${openedSubtab && 'active'}`}>
                                                         {
                                                             content.slice(1).map(({ type, content }) => {
                                                                 return showTabSection(content);
@@ -139,7 +141,7 @@ const Tabs = ( props ) => {
                             </div>
                             <div className="mvx-tab-content">
                                 {/* Render name and description of the current tab */}
-                                { getTabDescription() }
+                                { getTabDescription( tabData ) }
                                 {/* Render the form from parent component for better controll */}
                                 { getForm( currentTab )}
                             </div>

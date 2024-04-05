@@ -28,11 +28,11 @@
     align-items: end;
     justify-content: space-between;
     gap: 1rem;
-    margin-top: 2rem;
+    margin: 2rem 0;
 
     .video-support-wrapper {
       width: 60%;
-      min-width: 300px;
+      min-width: 18.9rem;
 
       p {
         font-size: 0.9rem;
@@ -41,7 +41,7 @@
 
       iframe {
         width: 100%;
-        height: 300px;
+        height: 18.9rem;
       }
     }
     .support-quick-link {
@@ -67,7 +67,7 @@
         }
 
         .icon-bar {
-          max-width: 30px;
+          max-width: 1.89rem;
 
           i {
             font-size: 1.5rem;
@@ -94,28 +94,14 @@
 }
 
 .faq-wrapper {
-  $bg-color: #f6f8fc;
-  $primary-text-color: #212943;
   $secondary-text-color: #9ea6ae;
   $details: #dee4f1;
 
-  body {
-    font-family: "Poppins", sans-serif;
-    font-size: 10px;
-    background: $bg-color;
-  }
-
   .heading {
-    color: $primary-text-color;
-    font-size: 1.5rem;
+    color: #65438f;
+    font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 2rem;
-  }
-
-  .container {
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+    margin-bottom: 1rem;
   }
 
   form {
@@ -133,34 +119,9 @@
       width: 4rem;
     }
   }
-
-  .searchbar {
-    font-family: "Poppins", sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    border: none;
-    padding: 1rem;
-    padding-left: 4rem;
-    width: 100%;
-    box-shadow: 0px 5px 13px 0px $details;
-    border-radius: 0.8rem;
-  }
-
-  .searchbar:focus {
-    outline: none;
-    box-shadow:
-      0 0 0 1.5px $details,
-      0px 5px 13px 0px $details;
-  }
-
-  .faq {
-    margin: 3rem 0;
-  }
   .question-wrapper {
-    width: 35rem;
-    border-bottom: 1px solid $details;
-    margin: 0 auto;
-    padding: 1rem;
+    border-bottom: 0.063rem solid $details;
+    padding: 1rem 1rem 1rem 0;
     transition: 1s;
   }
 
@@ -168,13 +129,17 @@
     display: flex;
     font-size: 1rem;
     font-weight: 500;
-    color: $primary-text-color;
+    color: #65438f;
     display: flex;
     justify-content: space-between;
 
+    h3{
+      font-size: 1.1rem;
+    }
+
     svg {
-      width: 1rem;
-      height: 1.5rem;
+      width: 0.85rem;
+      height: 1.25rem;
       fill: $secondary-text-color;
     }
 
@@ -204,11 +169,8 @@
   .answer.active {
     display: block;
     text-align: left;
-    padding-top: 1.5rem;
-    font-weight: light;
-    font-size: 0.8rem;
-    line-height: 1.5;
-    color: $secondary-text-color;
+    font-size: 0.85rem;
+    line-height: 1.4;
     height: 0%;
     animation: slidein 0.4s;
     animation-fill-mode: forwards;
@@ -222,6 +184,23 @@
     to {
       opacity: 1;
       transform: translateY(0%);
+    }
+  }
+}
+
+
+@media only screen and (min-width: 18.9rem) and (max-width: 71.82rem){
+  .support-container {
+    .support-container-wrapper{
+      flex-direction: column;
+
+      .video-support-wrapper{
+        width: 100%;
+      }
+
+      .support-quick-link{
+        width: 100%;
+      }
     }
   }
 }

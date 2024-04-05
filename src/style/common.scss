@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'mvx-font';
-  src:  url('fonts/mvx-font.eot?hgwy93');
-  src:  url('fonts/mvx-font.eot?hgwy93#iefix') format('embedded-opentype'),
-    url('fonts/mvx-font.ttf?hgwy93') format('truetype'),
-    url('fonts/mvx-font.woff?hgwy93') format('woff'),
-    url('fonts/mvx-font.svg?hgwy93#mvx-font') format('svg');
+  src:  url('fonts/mvx-font.eot?1kix7m');
+  src:  url('fonts/mvx-font.eot?1kix7m#iefix') format('embedded-opentype'),
+    url('fonts/mvx-font.ttf?1kix7m') format('truetype'),
+    url('fonts/mvx-font.woff?1kix7m') format('woff'),
+    url('fonts/mvx-font.svg?1kix7m#mvx-font') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -43,6 +43,9 @@
 .font-mailchimp:before {
   content: "\e900";
 }
+.font-support:before {
+  content: "\e911";
+}
 .font-link:before {
   content: "\e90d";
 }
@@ -76,8 +79,6 @@
 .font-settings:before {
   content: "\e904";
 }
-
-
 
 
 $base-color: #f2eff5;
