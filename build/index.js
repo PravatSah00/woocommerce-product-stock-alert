@@ -18915,8 +18915,11 @@ const MultiCheckBox = props => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: props.inputWrapperClass
     }, props.rightContent && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-      className: props.rightContentClass
-    }, option.label), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: props.rightContentClass,
+      dangerouslySetInnerHTML: {
+        __html: option.label
+      }
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: props.inputInnerWrapperClass
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
       className: props.inputClass,
@@ -19339,7 +19342,7 @@ const Customizer = props => {
     onChange: e => props.onChange(e, "button_border_size")
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     class: "PB-range-slidervalue"
-  }, "50px")))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, setting.button_border_size ? setting.button_border_size + 'px' : '0px')))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "section"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "lable"
@@ -19354,7 +19357,7 @@ const Customizer = props => {
     onChange: e => props.onChange(e, "button_border_radious")
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     class: "PB-range-slidervalue"
-  }, "50px"))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, setting.button_border_radious ? setting.button_border_radious + 'px' : '0px'))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "hover"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "section"
@@ -19389,7 +19392,7 @@ const Customizer = props => {
     onChange: e => props.onChange(e, "button_font_size")
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     class: "PB-range-slidervalue"
-  }, "50px")))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, setting.button_font_size ? setting.button_font_size + 'px' : '0px')))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "section"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "lable"
@@ -19407,7 +19410,7 @@ const Customizer = props => {
     onChange: e => props.onChange(e, "button_font_width")
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     class: "PB-range-slidervalue"
-  }, "50px")))))), select === "size" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, setting.button_font_width ? setting.button_font_width + 'px' : '0px')))))), select === "size" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "size"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "simple"
@@ -19426,7 +19429,7 @@ const Customizer = props => {
     onChange: e => props.onChange(e, "button_padding")
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     class: "PB-range-slidervalue"
-  }, "50px")))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, setting.button_padding ? setting.button_padding + 'px' : '0px')))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "section"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "lable"
@@ -19439,7 +19442,7 @@ const Customizer = props => {
     onChange: e => props.onChange(e, "button_margin")
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     class: "PB-range-slidervalue"
-  }, "50px")), " "))), select === "link" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, setting.button_margin ? setting.button_margin + 'px' : '0px'))))), select === "link" && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "link"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "simple"
@@ -20053,91 +20056,83 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-// const questions = [
-//   {
-//     id: 1,
-//     question: 'Popular Articles',
-//     answer: 'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.',
-//   },
-//     {
-//     id: 2,
-//     question: 'Fix problems & request removals',
-//     answer: 'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.',
-//   },
-//     {
-//     id: 3,
-//     question: 'Browse the web',
-//     answer: 'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.',
-//   },
-//       {
-//     id: 4,
-//     question: 'Search on your phone or tablet',
-//     answer: 'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.',
-//   },
-
-// ]
-
-// function FAQ(props) {    
-//     const [searchTerm, setSearchTerm] = React.useState('');
-//     const [searchResults, setSearchResults] = React.useState([]);
-//     const handleSearchChange = e => {
-//       setSearchTerm(e.target.value);
-//     };
-
-//     React.useEffect(() => {
-//       const results = props.data.filter(item=>
-//         item.question.toLowerCase().includes(searchTerm)
-//       );
-//       setSearchResults(results);
-//     }, [searchTerm]);
-
-//     return (    
-//       <div className='container'>
-//         <h2 className="heading">How can we help you?</h2>
-//         <section className='faq'>
-//          {searchResults.map(item => <Question question={item.question} answer={item.answer} />)}
-//         </section>      
-//       </div>
-//     )
-//   }
-
-//   const Question = props => {
-//     const [isActive, setActive] = React.useState(false);
-//     const handleClick = (id) => {
-//      setActive(!isActive)
-//    }
-//      return(
-//        <div className="question-wrapper">
-//        <div className='question' id={props.id}>
-//          <h3>{props.question}</h3>
-//          <button onClick={() => handleClick(props.id)}>
-//            <svg className={isActive? 'active' : ''} viewBox="0 0 320 512" width="100" title="angle-down">
-//      <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" />
-//    </svg>
-//          </button>     
-//        </div>
-//        <div className={isActive? 'answer active' : 'answer'}>{props.answer}</div>
-//        </div>
-//      )
-//    }
-
+const questions = [{
+  id: 1,
+  question: 'Popular Articles',
+  answer: 'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.'
+}, {
+  id: 2,
+  question: 'Fix problems & request removals',
+  answer: 'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.'
+}, {
+  id: 3,
+  question: 'Browse the web',
+  answer: 'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.'
+}, {
+  id: 4,
+  question: 'Search on your phone or tablet',
+  answer: 'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.'
+}];
+function FAQ(props) {
+  const [searchTerm, setSearchTerm] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const [searchResults, setSearchResults] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const handleSearchChange = e => {
+    setSearchTerm(e.target.value);
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const results = props.data.filter(item => item.question.toLowerCase().includes(searchTerm));
+    setSearchResults(results);
+  }, [searchTerm]);
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "container"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "heading"
+  }, "How can we help you?"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
+    className: "faq"
+  }, searchResults.map(item => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Question, {
+    question: item.question,
+    answer: item.answer
+  }))));
+}
+const Question = props => {
+  const [isActive, setActive] = react__WEBPACK_IMPORTED_MODULE_0___default().useState(false);
+  const handleClick = id => {
+    setActive(!isActive);
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "question-wrapper"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "question",
+    id: props.id
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, props.question), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    onClick: () => handleClick(props.id)
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    className: isActive ? 'active' : '',
+    viewBox: "0 0 320 512",
+    width: "100",
+    title: "angle-down"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: isActive ? 'answer active' : 'answer'
+  }, props.answer));
+};
 const Support = () => {
   const url = "https://www.youtube.com/embed/cgfeZH5z2dM?si=3zjG13RDOSiX2m1b";
   const supportLink = [{
-    title: "Data Entry 1",
-    icon: "icon1",
-    description: "Description for Data Entry 1",
+    title: "Get in Touch with Support",
+    icon: "mail",
+    description: "Reach out to the support team for assistance or guidance.",
     link: "link1"
   }, {
-    title: "Data Entry 2",
-    icon: "icon2",
-    description: "Description for Data Entry 2",
-    link: "link2"
+    title: "Explore Documentation",
+    icon: "submission-message",
+    description: "Understand the plugin and its settings.",
+    link: "https://multivendorx.com/docs/knowledgebase/products-stock-manager-notifier-for-woocommerce/"
   }, {
-    title: "Data Entry 3",
-    icon: "icon3",
-    description: "Description for Data Entry 3",
+    title: "Contribute Here",
+    icon: "support",
+    description: "To participation in product enhancement.",
     link: "link3"
   }];
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -20170,7 +20165,7 @@ const Support = () => {
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "icon-bar"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
-      className: `mvx-font ${item.icon}`
+      className: `mvx-font font-${item.icon}`
     })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "content"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
@@ -20179,7 +20174,9 @@ const Support = () => {
     }, item.title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, item.description))));
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "faq-wrapper"
-  }))));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(FAQ, {
+    data: questions
+  })))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Support);
 
@@ -20246,17 +20243,33 @@ const Tabs = props => {
       }
     }, tab.icon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
       className: ` mvx-font ${tab.icon} `
-    }), menuCol ? null : tab.name, openedSubtab == tab.id ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Up") : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Down"));
+    }), menuCol ? null : tab.name, menuCol ? null : openedSubtab == tab.id ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "tab-menu-dropdown-icon active"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "mvx-font font-arrow-right"
+    })) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "tab-menu-dropdown-icon"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "mvx-font font-arrow-right"
+    })));
   };
 
   // Get the description of the current tab.
-  const getTabDescription = () => {
-    return tabData.map(tab => {
-      return tab.id === currentTab && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-        className: "mvx-tab-description-start"
-      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-        className: "mvx-tab-name"
-      }, tab.name), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, tab.desc));
+  const getTabDescription = tabData => {
+    return tabData.map(({
+      content,
+      type
+    }) => {
+      if (type === 'file') {
+        return content.id === currentTab && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          className: "mvx-tab-description-start"
+        }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          className: "mvx-tab-name"
+        }, content.name), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, content.desc));
+      } else if (type === 'folder') {
+        // Get tabdescription from child by recursion
+        return getTabDescription(content);
+      }
     });
   };
   const handleMenu = () => {
@@ -20317,10 +20330,7 @@ const Tabs = props => {
     }, showHideMenu(content[0].content),
     // openedSubtab == content[0].content.id &&
     (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: `subtab-wrapper ${menuCol ? '????' : ''}`,
-      style: {
-        display: !openedSubtab ? 'none' : ''
-      }
+      className: `subtab-wrapper ${menuCol && 'show'} ${openedSubtab && 'active'}`
     }, content.slice(1).map(({
       type,
       content
@@ -20334,7 +20344,7 @@ const Tabs = props => {
     className: "mvx-font font-arrow-left"
   })), menuCol ? null : 'Collapse'))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mvx-tab-content"
-  }, getTabDescription(), getForm(currentTab)))))));
+  }, getTabDescription(tabData), getForm(currentTab)))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tabs);
 
